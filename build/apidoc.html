@@ -61,12 +61,83 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.nodeadmin">module nodeadmin</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.nodeadmin.nodeadmin">
+            function <span class="apidocSignatureSpan"></span>nodeadmin
+            <span class="apidocSignatureSpan">(app, port)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.nodeadmin" id="apidoc.module.nodeadmin">module nodeadmin</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.nodeadmin.nodeadmin" id="apidoc.element.nodeadmin.nodeadmin">
+        function <span class="apidocSignatureSpan"></span>nodeadmin
+        <span class="apidocSignatureSpan">(app, port)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function nodeadmin(app, port) {
+  &#x27;use strict&#x27;;
+
+  // ** Socket Connection
+  var server = http.createServer(app);
+  var io = sock(server);
+
+  var expressListen = app.listen;
+  app.listen = server.listen.bind(server);
+
+
+  // ** Socket Controller
+  require(&#x27;./sockets/socketcontroller.js&#x27;)(io);
+
+  // ** Logs
+  var accessLogStream = fs.createWriteStream(__dirname + &#x27;/serverlogs/access.log&#x27;, {flags: &#x27;a&#x27;});
+
+
+  // ** Third party middleware
+  app.use(morgan(&#x27;dev&#x27;, {
+    stream:accessLogStream
+  }));
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({extended: true}));
+  app.use(&#x27;/nodeadmin&#x27;, express.static(__dirname + &#x27;/public&#x27;));
+  // creates secret.js with a random string if it hasn&#x27;t been initialized\\
+  fs.readFile(&#x27;./secret.js&#x27;, function(err, data) {
+    if (err.code === &#x27;ENOENT&#x27;) {
+      var randomString = randomstring.generate();
+      var contents = &#x22;module.exports = &#x27;&#x22; + randomString + &#x22;&#x27;;&#x22;;
+      fs.writeFileSync(__dirname + &#x27;/secret.js&#x27;, contents);
+    }
+    var secret = require(&#x27;./secret.js&#x27;);
+    app.locals.secret = secret;
+  });
+
+  // ** Routes
+  app.use(&#x27;/nodeadmin/api/auth&#x27;, auth);
+  app.use(&#x27;/nodeadmin/api/db&#x27;, database);
+  app.use(&#x27;/nodeadmin/api/settings&#x27;,settings);
+  app.use(&#x27;/nodeadmin/api/system&#x27;,system);
+  app.use(&#x27;/nodeadmin/api/home&#x27;,home);
+
+  // ** Middleware
+  return function nodeadmin(req,res,next) {
+    next();
+  };
+
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 

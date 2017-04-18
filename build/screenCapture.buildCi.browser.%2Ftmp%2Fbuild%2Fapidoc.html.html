@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://nodeadmin.github.io/nodeadmin"
-
-    >nodeadmin (v0.1.2)</a>
+    <a href="http://nodeadmin.github.io/nodeadmin">nodeadmin (v0.1.2)</a>
 </h1>
 <h4>A fantastically elegant interface for MySQL and Node.js/Express management</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.nodeadmin">module nodeadmin</a><ol>
 
@@ -86,7 +79,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function nodeadmin(app, port) {
-  &#x27;use strict&#x27;;
+  'use strict';
 
   // ** Socket Connection
   var server = http.createServer(app);
@@ -97,36 +90,36 @@
 
 
   // ** Socket Controller
-  require(&#x27;./sockets/socketcontroller.js&#x27;)(io);
+  require('./sockets/socketcontroller.js')(io);
 
   // ** Logs
-  var accessLogStream = fs.createWriteStream(__dirname + &#x27;/serverlogs/access.log&#x27;, {flags: &#x27;a&#x27;});
+  var accessLogStream = fs.createWriteStream(__dirname + '/serverlogs/access.log', {flags: 'a'});
 
 
   // ** Third party middleware
-  app.use(morgan(&#x27;dev&#x27;, {
+  app.use(morgan('dev', {
     stream:accessLogStream
   }));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended: true}));
-  app.use(&#x27;/nodeadmin&#x27;, express.static(__dirname + &#x27;/public&#x27;));
-  // creates secret.js with a random string if it hasn&#x27;t been initialized\\
-  fs.readFile(&#x27;./secret.js&#x27;, function(err, data) {
-    if (err.code === &#x27;ENOENT&#x27;) {
+  app.use('/nodeadmin', express.static(__dirname + '/public'));
+  // creates secret.js with a random string if it hasn't been initialized\\
+  fs.readFile('./secret.js', function(err, data) {
+    if (err.code === 'ENOENT') {
       var randomString = randomstring.generate();
-      var contents = &#x22;module.exports = &#x27;&#x22; + randomString + &#x22;&#x27;;&#x22;;
-      fs.writeFileSync(__dirname + &#x27;/secret.js&#x27;, contents);
+      var contents = "module.exports = '" + randomString + "';";
+      fs.writeFileSync(__dirname + '/secret.js', contents);
     }
-    var secret = require(&#x27;./secret.js&#x27;);
+    var secret = require('./secret.js');
     app.locals.secret = secret;
   });
 
   // ** Routes
-  app.use(&#x27;/nodeadmin/api/auth&#x27;, auth);
-  app.use(&#x27;/nodeadmin/api/db&#x27;, database);
-  app.use(&#x27;/nodeadmin/api/settings&#x27;,settings);
-  app.use(&#x27;/nodeadmin/api/system&#x27;,system);
-  app.use(&#x27;/nodeadmin/api/home&#x27;,home);
+  app.use('/nodeadmin/api/auth', auth);
+  app.use('/nodeadmin/api/db', database);
+  app.use('/nodeadmin/api/settings',settings);
+  app.use('/nodeadmin/api/system',system);
+  app.use('/nodeadmin/api/home',home);
 
   // ** Middleware
   return function nodeadmin(req,res,next) {
@@ -147,3 +140,4 @@
     ]
 </div>
 </div>
+</body></html>
