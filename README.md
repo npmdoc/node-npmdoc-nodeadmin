@@ -1,9 +1,14 @@
-# api documentation for  [nodeadmin (v0.1.2)](http://nodeadmin.github.io/nodeadmin)  [![npm package](https://img.shields.io/npm/v/npmdoc-nodeadmin.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-nodeadmin) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-nodeadmin.svg)](https://travis-ci.org/npmdoc/node-npmdoc-nodeadmin)
+# npmdoc-nodeadmin
+
+#### api documentation for  [nodeadmin (v0.1.2)](http://nodeadmin.github.io/nodeadmin)  [![npm package](https://img.shields.io/npm/v/npmdoc-nodeadmin.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-nodeadmin) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-nodeadmin.svg)](https://travis-ci.org/npmdoc/node-npmdoc-nodeadmin)
+
 #### A fantastically elegant interface for MySQL and Node.js/Express management
 
-[![NPM](https://nodei.co/npm/nodeadmin.png?downloads=true)](https://www.npmjs.com/package/nodeadmin)
+[![NPM](https://nodei.co/npm/nodeadmin.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/nodeadmin)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-nodeadmin/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-nodeadmin_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-nodeadmin/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-nodeadmin/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-nodeadmin/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-nodeadmin/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-nodeadmin/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-nodeadmin/build/screenCapture.npmPackageListing.svg)
 
@@ -79,25 +84,20 @@
     "main": "middleware/index.js",
     "maintainers": [
         {
-            "name": "ahutch",
-            "email": "ahutch006@gmail.com"
+            "name": "ahutch"
         },
         {
-            "name": "ljknight",
-            "email": "ljknight@gmail.com"
+            "name": "ljknight"
         },
         {
-            "name": "nickell-andrew",
-            "email": "nickell.andrew@gmail.com"
+            "name": "nickell-andrew"
         },
         {
-            "name": "taylorleh",
-            "email": "taylorlehman111@gmail.com"
+            "name": "taylorleh"
         }
     ],
     "name": "nodeadmin",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/nodeadmin/nodeadmin.git"
@@ -109,16 +109,6 @@
     "version": "0.1.2"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module nodeadmin](#apidoc.module.nodeadmin)
-
-
-
-# <a name="apidoc.module.nodeadmin"></a>[module nodeadmin](#apidoc.module.nodeadmin)
 
 
 
